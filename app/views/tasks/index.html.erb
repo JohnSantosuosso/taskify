@@ -1,7 +1,22 @@
-<div class="container mx-auto px-4">
-  <h1 class="font-bold text-2xl mb-4">Task Manager</h1>
+<div>
+  <% if notice.present? %>
+    <p class="py-2 px-4 bg-green-50 mb-5 text-green-500 font-medium rounded-lg" id="notice">
+      <%= notice %>
+    </p>
+  <% end %>
 
-  <div class="mt-4">
-    <%= render "form", task: @task %>
-  </div>
+  <div class="container mx-auto px-4">
+    <h1 class="font-bold text-2xl mb-4">Task Manager</h1>
+
+    <div class="mt-4">
+      <%= render "form", task: @task %>
+    </div>
+
+    <div id="tasks">
+      <h1 class="font-bold text-lg mb-7">Tasks</h1>
+
+        <div class="px-5" data-controller="tasks"> <!--How you add stimulus, neat!-->
+           <%= render @tasks %>
+        </div>
+    </div>
 </div>
